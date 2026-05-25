@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobilSantiye.NewMaterialPage"
+             Title="NewMaterialPage">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="15">
+
+            <Label Text="Yeni Malzeme Ekle" FontSize="24" FontAttributes="Bold" TextColor="#1E293B" Margin="0,0,0,10" />
+
+            <!-- Malzeme Adı İçin Picker (Combobox) -->
+            <Frame Padding="10" CornerRadius="8" BorderColor="#E2E8F0" HasShadow="False">
+                <Picker x:Name="NamePicker" 
+                    Title="Malzeme Adı Seçiniz" 
+                    TextColor="#334155" 
+                    TitleColor="#94A3B8">
+                    <Picker.Items>
+                        <x:String>12mm İnşaat Demiri</x:String>
+                        <x:String>14mm İnşaat Demiri</x:String>
+                        <x:String>Portland Çimento</x:String>
+                        <x:String>Beyaz Çimento</x:String>
+                        <x:String>C30 Hazır Beton</x:String>
+                        <x:String>C35 Hazır Beton</x:String>
+                        <x:String>Tuğla (19x19)</x:String>
+                        <x:String>Gazbeton (Ytong)</x:String>
+                        <x:String>İzolasyon Membranı</x:String>
+                        <x:String>Seramik Yapıştırıcı</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Frame>
+
+            <!-- Kategori İçin Picker (Combobox) -->
+            <Frame Padding="10" CornerRadius="8" BorderColor="#E2E8F0" HasShadow="False">
+                <Picker x:Name="CategoryPicker" 
+                    Title="Kategori Seçiniz" 
+                    TextColor="#334155" 
+                    TitleColor="#94A3B8">
+                    <Picker.Items>
+                        <x:String>Demir</x:String>
+                        <x:String>Çimento</x:String>
+                        <x:String>Beton</x:String>
+                        <x:String>Duvar</x:String>
+                        <x:String>Yalıtım</x:String>
+                        <x:String>İnce İşler</x:String>
+                        <x:String>Genel</x:String>
+                    </Picker.Items>
+                </Picker>
+            </Frame>
+
+            <Grid ColumnDefinitions="*, *" ColumnSpacing="15">
+                <!-- Miktar (Elle girilmeye devam edecek) -->
+                <Frame Grid.Column="0" Padding="10" CornerRadius="8" BorderColor="#E2E8F0" HasShadow="False">
+                    <Entry x:Name="QuantityEntry" Placeholder="Miktar" Keyboard="Numeric" TextColor="#334155" />
+                </Frame>
+
+                <!-- Birim İçin Picker (Combobox) -->
+                <Frame Grid.Column="1" Padding="10" CornerRadius="8" BorderColor="#E2E8F0" HasShadow="False">
+                    <Picker x:Name="UnitPicker" 
+                        Title="Birim" 
+                        TextColor="#334155"
+                        TitleColor="#94A3B8">
+                        <Picker.Items>
+                            <x:String>Adet</x:String>
+                            <x:String>Ton</x:String>
+                            <x:String>Palet</x:String>
+                            <x:String>m3</x:String>
+                            <x:String>Rulo</x:String>
+                            <x:String>Torba</x:String>
+                        </Picker.Items>
+                    </Picker>
+                </Frame>
+            </Grid>
+
+            <Frame Padding="10" CornerRadius="8" BorderColor="#E2E8F0" HasShadow="False">
+                <Entry x:Name="AssignedToEntry" Placeholder="Zimmet / Teslim Yeri" TextColor="#334155" />
+            </Frame>
+
+            <Grid ColumnDefinitions="*, *" ColumnSpacing="15" Margin="0,20,0,0">
+                <Button Grid.Column="0" 
+                    Text="İptal" 
+                    BackgroundColor="#EF4444" 
+                    TextColor="White" 
+                    CornerRadius="8" 
+                    HeightRequest="50" 
+                    FontAttributes="Bold" 
+                    Clicked="OnCancelClicked" />
+
+                <Button Grid.Column="1" 
+                    Text="Kaydet" 
+                    BackgroundColor="#10B981" 
+                    TextColor="White" 
+                    CornerRadius="8" 
+                    HeightRequest="50" 
+                    FontAttributes="Bold" 
+                    Clicked="OnSaveClicked" />
+            </Grid>
+
+        </StackLayout>
+    </ScrollView>
+
+
+
+</ContentPage>

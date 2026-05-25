@@ -1,0 +1,65 @@
+MainPage.xaml
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobilSantiye.MainPage">
+
+    <Grid RowDefinitions="Auto, *, Auto" Padding="20">
+
+        <!-- Üst Başlık Kısmı -->
+        <StackLayout Grid.Row="0" Margin="0,0,0,20">
+            <Label Text="BİNMERSAN ŞANTİYE MALZEME DEPO DURUMU" FontSize="26" FontAttributes="Bold" TextColor="#1E293B" />
+            <Label Text="Gerçek Zamanlı Malzeme Listesi" FontSize="14" TextColor="#64748B" />
+        </StackLayout>
+
+        <!-- Dinamik Malzeme Listesi -->
+        <CollectionView Grid.Row="1" x:Name="MaterialsListView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Margin="0,0,0,12" Padding="15" CornerRadius="12" BackgroundColor="White" HasShadow="True" BorderColor="#E2E8F0">
+                        <Grid ColumnDefinitions="*, Auto">
+
+                            <!-- Sol Taraf: Malzeme Adı ve Zimmet Bilgisi -->
+                            <StackLayout Grid.Column="0" VerticalOptions="Center">
+                                <Label Text="{Binding Name}" FontSize="18" FontAttributes="Bold" TextColor="#334155" />
+                                <Label Text="{Binding AssignedTo, StringFormat='Zimmet: {0}'}" FontSize="13" TextColor="#94A3B8" Margin="0,4,0,0" />
+                            </StackLayout>
+
+                            <!-- Sağ Taraf: Miktar ve Durum (Azalan stoklar kırmızı görünür) -->
+                            <StackLayout Grid.Column="1" VerticalOptions="Center" HorizontalOptions="End">
+                                <Label Text="{Binding Quantity}" FontSize="24" FontAttributes="Bold" HorizontalOptions="End" TextColor="{Binding StatusColor}" />
+                                <Label Text="{Binding Unit}" FontSize="12" HorizontalOptions="End" TextColor="#64748B" />
+                            </StackLayout>
+
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Şantiyeye Uygun Büyük Aksiyon Butonları -->
+        <Grid Grid.Row="2" ColumnDefinitions="*, *" ColumnSpacing="15" Margin="0,20,0,10">
+            <Button Grid.Column="0" 
+                Text="📷 Karekod Tara" 
+                BackgroundColor="#3B82F6" 
+                TextColor="White" 
+                CornerRadius="10" 
+                HeightRequest="55" 
+                FontAttributes="Bold" 
+                FontSize="16"
+                Clicked="OnScanBarcodeClicked" />
+
+            <Button Grid.Column="1" 
+                Text="➕ Yeni Giriş" 
+                BackgroundColor="#10B981" 
+                TextColor="White" 
+                CornerRadius="10" 
+                HeightRequest="55" 
+                FontAttributes="Bold" 
+                FontSize="16"
+                Clicked="OnAddMaterialClicked" />
+        </Grid>
+
+    </Grid>
+
+</ContentPage>

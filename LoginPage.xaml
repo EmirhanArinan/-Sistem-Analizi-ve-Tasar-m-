@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobilSantiye.LoginPage"
+             Title="LoginPage">
+    <Grid VerticalOptions="Center" Padding="30">
+
+        <Frame Padding="20" CornerRadius="15" BackgroundColor="White" HasShadow="True" BorderColor="#E2E8F0">
+            <StackLayout Spacing="20">
+
+                <Label Text="Mobil Şantiye" 
+                   FontSize="32" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   TextColor="#1E293B" 
+                   Margin="0,0,0,10"/>
+
+                <Label Text="Lütfen Giriş Yapın" 
+                   FontSize="16" 
+                   HorizontalOptions="Center" 
+                   TextColor="#64748B" 
+                   Margin="0,-10,0,10"/>
+
+                <Frame Padding="10" CornerRadius="8" BorderColor="#E2E8F0" HasShadow="False">
+                    <Entry x:Name="UsernameEntry" 
+                       Placeholder="Kullanıcı Adı" 
+                       TextColor="#334155" />
+                </Frame>
+
+                <Frame Padding="10" CornerRadius="8" BorderColor="#E2E8F0" HasShadow="False">
+                    <Entry x:Name="PasswordEntry" 
+                       Placeholder="Şifre" 
+                       IsPassword="True" 
+                       TextColor="#334155" />
+                </Frame>
+
+                <Button Text="Giriş Yap" 
+                    BackgroundColor="#3B82F6" 
+                    TextColor="White" 
+                    CornerRadius="8" 
+                    HeightRequest="50" 
+                    FontAttributes="Bold" 
+                    FontSize="16"
+                    Margin="0,10,0,0"
+                    Clicked="OnLoginClicked" />
+
+            </StackLayout>
+        </Frame>
+    </Grid>
+
+</ContentPage>
